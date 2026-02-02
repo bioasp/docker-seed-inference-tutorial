@@ -7,7 +7,7 @@ jobs:
       matrix:
         os: [Ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
-   defaults:
+    defaults:
       run:
         working-directory: ./seed_inference_tutorial
     steps:
