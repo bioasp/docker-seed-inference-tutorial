@@ -25,6 +25,7 @@ RUN CONDA_VERSION="py311_25.11.1-1" && \
 RUN pip install seed2lp
 RUN pip install  git+https://github.com/cfrioux/NetSeedPy.git@main
 
+USER ubuntu
 ADD seed_inference_tutorial /wd
 ADD run_demo.sh /wd
 WORKDIR /wd
