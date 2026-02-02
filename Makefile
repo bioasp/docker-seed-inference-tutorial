@@ -1,4 +1,4 @@
-IMAGENAME = seed2lp-demo
+IMAGENAME = bioasp/seed-inference-tutorial
 build:
 	docker build -t $(IMAGENAME) .
 
