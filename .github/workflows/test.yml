@@ -26,3 +26,4 @@ jobs:
     - run: seed2lp target sbml/toy-model.xml results/s2lp/toy-model/ -so reasoning -m subsetmin -nbs 5 -tl 10 --accumulation
     - run: seed2lp target sbml/toy-model.xml results/s2lp/toy-model/ -so guess_check_div -m subsetmin -nbs 100 -tl 10 --accumulation
     - run: python ./scripts/cobra_seedsearch/cobra_seedsearch.py ./sbml/toy-model.xml ./target/toy-model_targets.txt ./objective/toy-model_target.txt ./results/cobrapy 1
+    - run: python -m json.tool ./results/cobrapy/toy-model/toy-model_cobrapy_results.json
