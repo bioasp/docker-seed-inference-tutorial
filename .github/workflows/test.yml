@@ -7,7 +7,9 @@ jobs:
       matrix:
         os: [Ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
-
+   defaults:
+      run:
+        working-directory: ./seed_inference_tutorial
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -19,7 +21,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install seed2lp
         pip install  git+https://github.com/cfrioux/NetSeedPy.git@main
-        cd seed_inference_tutorial
     - run: seed2lp network sbml/toy-model.xml sbml-norm/ -wf
     - run: netseedpy --sbml sbml-norm/toy-model.xml --format enumeration --max 100
     - run: seed2lp target sbml/toy-model.xml results/s2lp/toy-model/ -so reasoning -m subsetmin -nbs 5 -tl 10 --accumulation
