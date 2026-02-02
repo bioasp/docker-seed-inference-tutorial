@@ -7,6 +7,7 @@ ENV PATH=/home/user/.local/bin:/opt/conda/bin:$PATH
 RUN apt-get update --fix-missing && \
     apt-get install -y --no-install-recommends \
         bzip2 \
+        git \
         ca-certificates \
         curl\
         && \
@@ -22,13 +23,6 @@ RUN CONDA_VERSION="py311_25.11.1-1" && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN pip install seed2lp
-
-RUN apt-get update --fix-missing && \
-    apt-get install -y --no-install-recommends \
-        git \
-        && \
-    apt clean -y && \
-    rm -rf /var/lib/apt/lists/*
 RUN pip install  git+https://github.com/cfrioux/NetSeedPy.git@main
 
 ADD seed_inference_tutorial /wd
